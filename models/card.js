@@ -6,7 +6,7 @@ var CardSchema = new Schema({
     description: { type: String, required: true },
     image: { type: String, required: true },
     user: {type: Schema.Types.ObjectId, ref:'User'},
-    user: {type: Schema.Types.ObjectId, ref:'Destination'},
+    destination: {type: Schema.Types.String, ref:'Destination'},
 
 })
 
