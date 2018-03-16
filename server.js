@@ -63,19 +63,19 @@ app.post("/api/cards", function(req, res){
     if (err){
       console.log(err);
     } else {
-      res.json(savedPost);
+      res.json(savedCard);
     }
   });
   //populate user reference in the card model
-  Card.find().populate('User').exec(function(err,card){
-    console.log(card);
-    console.log(card.User);
-  });
-  //populate destination reference in the card model
-  Card.find().populate('Destination').exec(function(err,card){
-    console.log(card);
-    console.log(card.Destination);
-  });
+  // Card.find().populate('User').exec(function(err,card){
+  //   console.log(card);
+  //   console.log(card.User);
+  // });
+  // //populate destination reference in the card model
+  // Card.find().populate('Destination').exec(function(err,card){
+  //   console.log(card);
+  //   console.log(card.Destination);
+  // });
 });
 
 //Showpage for individual cards
