@@ -36,7 +36,9 @@ app.use(function(req, res, next) {
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
+
   res.render('index');
+
 });
 
 
@@ -49,6 +51,7 @@ app.get("/api/cards", function(req, res){
       // res.render("cards/index", {cards: allCards, error: null});
       res.json(allCards);
     }
+
 });
 });
 // create cards
@@ -103,6 +106,5 @@ app.delete("/api/cards/:id", function (req, res) {
 
 //-------------Server------------->
 app.listen(process.env.PORT || 3000, function(){
-
   console.log("listening..");
 });
