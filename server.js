@@ -11,7 +11,7 @@ var app = express();
 
 
 var bodyParser = require('body-parser');
-app.use(express.static('public'));
+app.use(express.static(__dirname +'public'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -35,17 +35,17 @@ app.use(function(req, res, next) {
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  res.sendFile('index');
+  res.render('index.ejs');
 });
 
-//----------------Routes------------->
+
 //View of all cards
 app.get("/api/cards", function(req, res){
   Card.find({}, function(err, allCards){
     if (err){
       console.log(err);
     } else {
-      res.render("cards", {cards: allCards, error: null});
+      res.render("cards/index", {cards: allCards, error: null});
     }
 });
 });
