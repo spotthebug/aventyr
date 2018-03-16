@@ -90,6 +90,16 @@ app.get("/api/destinations/:id", function(req, res) {
   });
 });
 
+app.get("/api/users", function(req, res){
+  User.find({}, function(err, allUsers){
+    if (err){
+      console.log(err);
+    } else {
+      res.json(allUsers);
+    }
+});
+});
+
 
 
 //-------------Server------------->
