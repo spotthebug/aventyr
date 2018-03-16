@@ -1,3 +1,11 @@
+// server.js
+// SERVER-SIDE JAVASCRIPT
+
+
+/////////////////////////////
+//  SETUP and CONFIGURATION
+/////////////////////////////
+
 var express = require('express');
 var app = express();
 
@@ -7,11 +15,27 @@ app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-var db = require('./models');
+var db = require('./models'),
+  Card = db.Card,
+  Destination = db.Destination,
+  User = db.User;
+
 app.use(function(req, res, next) {
  res.header("Access-Control-Allow-Origin", "*");
  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
  next();
+});
+
+
+////////////////////
+//  ROUTES
+///////////////////
+
+// set view engine to ejs
+app.set("view engine", "ejs");
+
+app.get("/", function(req, res) {
+  res.sendFile('index');
 });
 
 //----------------Routes------------->
@@ -39,8 +63,6 @@ app.get("/api/cards/:id", function(req, res){
     }
   })
 });
-
-
 
 
 
