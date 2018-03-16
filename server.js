@@ -11,7 +11,8 @@ var app = express();
 
 
 var bodyParser = require('body-parser');
-app.use(express.static(__dirname +'public'));
+app.use(express.static('public'));
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -36,7 +37,8 @@ app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
 
-  res.render('index.ejs');
+  res.render('index');
+
 });
 
 
@@ -46,19 +48,43 @@ app.get("/api/cards", function(req, res){
     if (err){
       console.log(err);
     } else {
-      res.render("cards/index", {cards: allCards, error: null});
+      // res.render("cards/index", {cards: allCards, error: null});
+      res.json(allCards);
     }
 
 });
 });
+// create cards
+app.post("/api/cards", function(req, res){
+  var newCard = new Card(req.body);
+//saving the new card that was created
+  newCard.save(function(err, savedCard){
+    if (err){
+      console.log(err);
+    } else {
+      res.json(savedPost);
+    }
+  });
+  //populate user reference in the card model
+  Card.find().populate('User').exec(function(err,card){
+    console.log(card);
+    console.log(card.User);
+  });
+  //populate destination reference in the card model
+  Card.find().populate('Destination').exec(function(err,card){
+    console.log(card);
+    console.log(card.Destination);
+  });
+});
 
 //Showpage for individual cards
 app.get("/api/cards/:id", function(req, res){
-  Card.findOne({_id: CardId}, function(err, foundCard){
+  Card.findOne({_id: req.params.id}, function(err, foundCard){
     console.log(foundCard);
     if (err){
       console.log(err);
     } else{
+      res.json(foundCard);
       foundCard.title = req.body.title || foundCard.title;
       foundCard.description = req.body.description || foundCard.description;
       foundCard.image = req.body.title || foundCard.image;
@@ -66,6 +92,16 @@ app.get("/api/cards/:id", function(req, res){
   })
 });
 
+//delete cards
+app.delete("/api/cards/:id", function (req, res) {
+  // get card id from url params (`req.params`)
+  var cardId = req.params.id;
+
+  // find card in db by id and remove
+  Card.findOneAndRemove({ _id: cardId, }, function () {
+    res.redirect("/");
+  });
+});
 
 
 //-------------Server------------->
