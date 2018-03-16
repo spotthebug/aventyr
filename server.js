@@ -34,11 +34,10 @@ app.use(function(req, res, next) {
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  res.sendFile('index.ejs');
+  res.sendFile('index');
 });
 
 
 app.listen(process.env.PORT || 3000, function(){
-
   console.log("listening..");
 });
