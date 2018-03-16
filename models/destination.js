@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 Schema = mongoose.Schema;
 
 var DestinationSchema = new Schema ({
-  name: String
+  name: String,
+  image: String
 });
 
 var Destination = mongoose.model('Destination', DestinationSchema);
