@@ -2,11 +2,12 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var CardSchema = new Schema({
-    title: String,
-    description: String,
-    image: String,
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    image: { type: String, required: true },
     user: {type: Schema.Types.ObjectId, ref:'User'},
-    user: {type: Schema.Types.ObjectId, ref:'Destination'}
+    user: {type: Schema.Types.ObjectId, ref:'Destination'},
+
 })
 
 

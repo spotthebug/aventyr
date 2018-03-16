@@ -11,7 +11,7 @@ var app = express();
 
 
 var bodyParser = require('body-parser');
-app.use(express.static(__dirname +'public'));
+app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -36,7 +36,7 @@ app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
 
-  res.render('index.ejs');
+  res.render("index");
 });
 
 
@@ -64,6 +64,30 @@ app.get("/api/cards/:id", function(req, res){
       foundCard.image = req.body.title || foundCard.image;
     }
   })
+});
+
+// Show all destinations
+app.get("/api/destinations", function(req, res) {
+  Destination.find({}, function(err, allDestinations) {
+    if (err) {
+      res.status(500).json({error: err.message});
+    }
+    else {
+      res.json(allDestinations);
+      // res.render("destinations/index", {destinations: allDestinations})
+    }
+  });
+});
+
+app.get("/api/destinations/:id", function(req, res) {
+  Destination.findById((req.params.id), function(err, foundDestination) {
+    if (err) {
+      res.status(500).json({error: err.message});
+    }else {
+      res.json(foundDestination);
+      // res.render("destinations/show", {destinations: foundDestination});
+    }
+  });
 });
 
 
