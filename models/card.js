@@ -7,8 +7,7 @@ var CardSchema = new Schema({
     image: { type: String, required: true },
     user: {type: Schema.Types.ObjectId, ref:'User'},
     destination: {type: Schema.Types.String, ref:'Destination'},
-
-})
+});
 
 
 var Card = mongoose.model('Card', CardSchema);
