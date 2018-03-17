@@ -63,6 +63,7 @@ db.Card.remove({}, function(err, cards) {
     }
     console.log('recreated all cards');
     console.log("created", cards.length, "cards");
+    process.exit();
   })
 });
 
@@ -76,6 +77,7 @@ db.Destination.remove({}, function(err, destinations) {
     }
   console.log('recreated all destinations');
     console.log("created", destinations.length, "destinations");
+    process.exit();
   })
 });
 
@@ -92,8 +94,8 @@ db.User.remove({}, function(err, users){
       return console.log(err);
     }
     console.log("recreated all users");
+    process.exit();
   }));
 }
 
 });
-
