@@ -94,6 +94,20 @@ app.post("/signup", function (req, res) {
   );
 });
 
+app.post('/login',passport.authenticate('local'), function (req, res){
+console.log(req.user);
+res.redirect("/");
+});
+app.get('/login', function(req, res){
+  res.render("login")
+});
+app.get('/logout', function (req, res){
+  console.log("Before logout", JSON.stringify(req.user));
+  req.logout();
+  console.log("After logout", JSON.stringify(req.user));
+  res.redirect('/')
+});
+
 //View of all cards
 app.get("/api/cards", function(req, res){
   Card.find({}, function(err, allCards){
@@ -107,18 +121,40 @@ app.get("/api/cards", function(req, res){
 });
 });
 app.get("/api/cards/create", function(req, res){
-  res.render("./cards/create");
-})
+  Destination.find({}, function(err, allDestinations){
+    if (err){
+      console.log(err);
+    } else {
+      // res.render("cards/index", {cards: allCards, error: null});
+      console.log(allDestinations);
+      res.render("./cards/create", {destinations: allDestinations});
+    }
+  })
+
+});
 // create cards
 app.post("/api/cards", function(req, res){
   var newCard = new Card(req.body);
 //saving the new card that was created
-  newCard.save(function(err, savedCard){
-    if (err){
-      console.log(err);
-    } else {
-      res.json(savedCard);
-    }
+console.log(req.body.destination);
+Destination.findOne({name: req.body.destination}, function(err, destination){
+  if (err){
+    console.log(err);
+  } else {
+    // res.render("cards/index", {cards: allCards, error: null});
+    newCard.destination = destination;
+    newCard.user = req.user;
+    console.log(req.user);
+    newCard.save(function(err, savedCard){
+      if (err){
+        console.log(err);
+      } else {
+        console.log(savedCard);
+      }
+    res.redirect("/api/cards");
+  })
+}
+
   });
 //populate user reference in the card model
   // Card.find().populate('User').exec(function(err,card){

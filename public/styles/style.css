@@ -1,5 +1,6 @@
 #logo{
   width: 60px;
+  height: auto;
   margin-top: 25px;
 }
 header{
@@ -13,6 +14,7 @@ h1{
 }
 #main-page{
   height: 200px;
+  width: auto;
 }
 nav{
   display: flex;
@@ -20,4 +22,11 @@ nav{
 }
 nav a{
   margin: 0 15px;
+}
+select{
+  margin-bottom: 20px;
+}
+img{
+  height: 300px;
+  width: 300px;
 }
