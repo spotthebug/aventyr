@@ -15,17 +15,21 @@
 </head>
 <body>
   <header class="center-align">
-   <h1 class="center-align white-text">AveNtyr</h1>
-   <img src="/images/aventyr.png" id = "main-page">
- </header>
- <nav class= "valign-wrapper grey lighten-2 sticky-nav-wrapper">
-   <a href=""><img src="/images/aventyr.png" id="logo"></a>
-   <div>
-     <a href="/api/cards">Gallery</a>
-     <a href="">Sign up</a>
-     <a href="" class="btn teal lighten-3">Log In</a>
-     <a href="" class="btn teal lighten-3">Log Out</a>
-   </div>
- </nav>
-</body>
-</html>
+    <h1 class="center-align white-text">AveNtyr</h1>
+    <img src="/images/aventyr.png" id = "main-page">
+  </header>
+  <nav class= "valign-wrapper grey lighten-2 sticky-nav-wrapper">
+    <a href=""><img src="/images/aventyr.png" id="logo"></a>
+    <div>
+      <a href="/api/cards">Gallery</a>
+      <% if(!user) { %>
+        <a href="/signup">Sign up</a>
+        <a href="/login" class="btn teal lighten-3">Log In</a>
+        <% } else { %>
+          <div>Welcome, <%= user.username %>!</div>
+          <a href="/logout" class="btn teal lighten-3">Log Out</a>
+          <% } %>
+        </div>
+      </nav>
+    </body>
+    </html>

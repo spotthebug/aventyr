@@ -21,3 +21,6 @@ nav{
 nav a{
   margin: 0 15px;
 }
+select{
+  margin-bottom: 20px;
+}
