@@ -24,3 +24,7 @@ nav a{
 select{
   margin-bottom: 20px;
 }
+img{
+  height: 300px;
+  width: 300px;
+}
