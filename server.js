@@ -65,8 +65,14 @@ app.use(function(req, res, next) {
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  res.render('index');
-});
+  Card.find(function (err, allCards) {
+    console.log(allCards);
+    if (err) {
+      res.status(500).json({ error: err.message, });
+    } else {
+        res.render("index", { posts: allCards, user: req.user, error: null});
+    }
+  });});
 
 // Signup
 app.get('/signup', function (req, res) {
@@ -95,11 +101,14 @@ app.get("/api/cards", function(req, res){
       console.log(err);
     } else {
       // res.render("cards/index", {cards: allCards, error: null});
-      res.json(allCards);
+      res.render("./cards/index", {cards: allCards});
     }
 
 });
 });
+app.get("/api/cards/create", function(req, res){
+  res.render("./cards/create");
+})
 // create cards
 app.post("/api/cards", function(req, res){
   var newCard = new Card(req.body);

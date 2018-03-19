@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Aventyr</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="/styles/style.css">
+  <script src="./scripts/app.js"></script>
+
+</head>
+<body>
+ <nav class= "valign-wrapper grey lighten-2 sticky-nav-wrapper">
+   <a href=""><img src="/images/aventyr.png" id="logo"></a>
+   <div>
+     <a href="/api/cards">Gallery</a>
+     <a href="">Sign up</a>
+     <a href="" class="btn teal lighten-3">Log In</a>
+     <a href="" class="btn teal lighten-3">Log Out</a>
+   </div>
+ </nav>
+ <main>
+   <div class="row">
+   <form class="form-inline col s4 offset-s3" id="create-card" method="POST" action="/api/cards">
+        <div class="form-group">
+          <input type="text" name="title" class="form-control" placeholder="Title" autofocus>
+        </div>
+        <div class="form-group">
+          <input type="text" name="description" class="form-control" placeholder="Description">
+        </div>
+        <div class="form-group">
+          <input type="text" name="image" class="form-control" placeholder="Image URL">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default" value="Create Card">
+        </div>
+      </form>
+    </div>
+
+ </main>
+</body>
+</html>
