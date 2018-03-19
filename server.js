@@ -143,6 +143,8 @@ Destination.findOne({name: req.body.destination}, function(err, destination){
   } else {
     // res.render("cards/index", {cards: allCards, error: null});
     newCard.destination = destination;
+    newCard.user = req.user;
+    console.log(req.user);
     newCard.save(function(err, savedCard){
       if (err){
         console.log(err);
