@@ -66,7 +66,7 @@ app.post("/api/cards", function(req, res){
       res.json(savedCard);
     }
   });
-  //populate user reference in the card model
+//populate user reference in the card model
   // Card.find().populate('User').exec(function(err,card){
   //   console.log(card);
   //   console.log(card.User);
