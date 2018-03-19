@@ -6,19 +6,49 @@
 //  SETUP and CONFIGURATION
 /////////////////////////////
 
-var express = require('express');
-var app = express();
+// require express and other modules
+var express = require("express"),
+  app = express(),
+  bodyParser = require("body-parser"),
+  methodOverride = require("method-override"),
 
+  //  NEW ADDITIONS
+  cookieParser = require("cookie-parser"),
+  session = require("express-session"),
+  passport = require("passport"),
+  LocalStrategy = require("passport-local").Strategy;
 
-var bodyParser = require('body-parser');
+// configure bodyParser (for receiving form data)
+app.use(bodyParser.urlencoded({ extended: true, }));
+
+// serve static files from public folder
 app.use(express.static('public'));
 
-app.use(bodyParser.urlencoded({extended: true}));
-
+// set Models
 var db = require('./models'),
   Card = db.Card,
   Destination = db.Destination,
   User = db.User;
+  Rating = db.Rating;
+
+// set view engine to ejs
+app.set("view engine", "ejs");
+
+app.use(methodOverride("_method"));
+
+app.use(cookieParser());
+app.use(session({
+  secret: "thisisasecret", // change this!
+  resave: false,
+  saveUninitialized: false,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 app.use(function(req, res, next) {
  res.header("Access-Control-Allow-Origin", "*");
@@ -35,13 +65,28 @@ app.use(function(req, res, next) {
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-
-
   res.render('index');
-
-
 });
 
+// Signup
+app.get('/signup', function (req, res) {
+ res.render('signup');
+});
+
+
+app.post("/signup", function (req, res) {
+  console.log("sanity check!! pre-signup");
+  User.register(new User({ username: req.body.username, }), req.body.password,
+      function (err, newUser) {
+        console.log("Check if it enter function to auth");
+        console.log("ERROR", err);
+        console.log("NEW USER!!",newUser);
+        passport.authenticate("local")(req, res, function() {
+          res.redirect("/");
+        });
+      }
+  );
+});
 
 //View of all cards
 app.get("/api/cards", function(req, res){
