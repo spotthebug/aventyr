@@ -17,6 +17,7 @@ var express = require("express"),
   session = require("express-session"),
   passport = require("passport"),
   LocalStrategy = require("passport-local").Strategy;
+  $ = require('jquery');
 
 // configure bodyParser (for receiving form data)
 app.use(bodyParser.urlencoded({ extended: true, }));
@@ -97,7 +98,7 @@ app.post("/signup", function (req, res) {
 // Login and Logout
 
 app.post('/login',passport.authenticate('local'), function (req, res){
-console.log(req.user);
+
 res.redirect("/");
 });
 
@@ -109,7 +110,7 @@ app.get('/logout', function (req, res){
   console.log("Before logout", JSON.stringify(req.user));
   req.logout();
   console.log("After logout", JSON.stringify(req.user));
-  res.render('/')
+  res.redirect('/')
 });
 
 
