@@ -18,14 +18,14 @@
   <nav class= "valign-wrapper grey lighten-2 sticky-nav-wrapper">
     <a href="/"><img src="/images/aventyr.png" id="logo"></a>
     <div>
-      <% if(!user) { %>
-        <a href="/signup">Sign up</a>
-        <a href="/login" class="btn teal lighten-3">Log In</a>
+        <% if(!user) { %>
+          <a href="/signup">Sign up</a>
+          <a href="/login" class="btn teal lighten-3">Log In</a>
         <% } else { %>
           <a href="/api/cards/create"><i class="fas fa-pencil-alt"></i></a>
           <a href=""><%= user.username %></a>
           <a href="/logout" class="btn teal lighten-3">Log Out</a>
-          <% } %>
+        <% } %>
         </div>
       </nav>
       <div id="target" class="row">
@@ -33,11 +33,13 @@
           <div class="card-panel col s3 card">
             <img src="<%=card.image%>">
             <p><%= card.title %></p>
+            <% if(user) { %>
             <form method="POST" action="cards/<%= card._id %>?_method=DELETE">
                 <button type = "submit">
                   <i class="fas fa-trash"></i>
                 </button>
             </form>
+            <% } %>
           </div>
           <% } %>
         </div>
