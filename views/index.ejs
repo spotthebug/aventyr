@@ -27,11 +27,12 @@
         <a href="" class="signup-btn">Sign up</a>
         <a href="/login" class="btn teal lighten-3">Log In</a>
         <% } else { %>
-          <a href=""><%= user.username %></a>
+          <a href="/api/users/<%=user.id%>"><%= user.username %></a>
           <a href="/logout" class="btn teal lighten-3">Log Out</a>
           <% } %>
         </div>
       </nav>
+
     <div class ="row">
       <div class="col s3 offset-s1"><img src="/images/omar2.jpg" class="profileimage"><p>Junior Full Stack Developer. Likes to stay active on the weekends either with sports or projects and staying up to date with the newest technology.
         Languages: HTML, CSS, Javascript, Ruby, Ruby on Rails, React, Node.js,Express
@@ -44,6 +45,7 @@
       <div class="col s3 offset-s1"><img src="https://media.licdn.com/dms/image/C5603AQFljn9hFHfBQQ/profile-displayphoto-shrink_800_800/0?e=1526688000&v=alpha&t=kw1VNqZqwmYO7zGk0a_nayrwYa2Koqu0P5dVZf0XnZw" class="profileg"><p>The tech industry has transformative powers and as a developer, my aim is to utilize these to solve business challenges and build beautiful and meaningful things.
         Skills: Javascript, AJAX, JQuery, Node.js/Express, Ruby, Ruby on Rails, PostgreSQL, MsSQL, MongoDB, React, HTML5, CSS3 </p></div>
       </div>
+
 
       <main>
         <div class="row" id="sign-up">
@@ -72,6 +74,19 @@
           </div>
           <% } %>
         </div>
+        <div class ="row">
+          <div class="col s3 offset-s1"><img src="/images/omar2.jpg" class="profileimage"><p>Junior Full Stack Developer. Likes to stay active on the weekends either with sports or projects and staying up to date with the newest technology.
+            Languages: HTML, CSS, Javascript, Ruby, Ruby on Rails, React, Node.js,Express
+            Skills:Photoshop, Microsoft Word/Powerpoint, Photography
+            Tools: Sublime, Atom, Github, Adobe Photoshop, Postman, Heroku, MongoDB</p></div>
+          <div class="col s3 offset-s1"><img src="https://media.licdn.com/dms/image/C5603AQFH2j__1g97qw/profile-displayphoto-shrink_800_800/0?e=1526688000&v=alpha&t=5tQc96-0LJZ7hMFzizaHtUszaA9cjVqpxnw1WZqFZCY" class="profilem"><p>Web Development student in the San Francisco Bay Area learning new technologies and build on different skills. Would love to collaborate on new projects.
+            Skills: HTML, CSS, JavaScript, jQuery, AJAX/JSON,Ruby, Node.js, Angular, Ruby on Rails, React, API integration, OOP, mySQL, Bootstrap, MongoDB, Express.js
+            Github: https://github.com/Manjilan
+            Website: http://manjilanakarmi.com</p></div>
+          <div class="col s3 offset-s1"><img src="https://media.licdn.com/dms/image/C5603AQFljn9hFHfBQQ/profile-displayphoto-shrink_800_800/0?e=1526688000&v=alpha&t=kw1VNqZqwmYO7zGk0a_nayrwYa2Koqu0P5dVZf0XnZw" class="profileg"><p>The tech industry has transformative powers and as a developer, my aim is to utilize these to solve business challenges and build beautiful and meaningful things.
+            Skills: Javascript, AJAX, JQuery, Node.js/Express, Ruby, Ruby on Rails, PostgreSQL, MsSQL, MongoDB, React, HTML5, CSS3 </p></div>
+          </div>
+
       </main>
       <section class="row info card-panel">
         <div class="col s1 offset-s2">

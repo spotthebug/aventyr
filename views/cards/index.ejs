@@ -32,13 +32,14 @@
         <% for (let card of cards) { %>
           <div class="card-panel col s2 card">
             <img src="<%=card.image%>">
-            <p class="center-align"><%= card.title %></p>
+            <p class="center-align"><%= card.title %>
             <% if(user) { %>
             <form method="POST" action="cards/<%= card._id %>?_method=DELETE">
                 <button type = "submit">
                   <i class="fas fa-trash"></i>
                 </button>
             </form>
+            </p>
             <% } %>
           </div>
           <% } %>

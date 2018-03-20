@@ -1,7 +1,6 @@
 #logo{
   width: 60px;
   height: auto;
-  margin-top: 25px;
 }
 header{
   background: url("/images/header.jpg");
@@ -83,6 +82,10 @@ img{
   display: block;
   margin: 0 auto;
   padding: 5px;
+}
+
+button{
+  margin-left: 45%;
 }
 .profileimage{
   height:250px;
