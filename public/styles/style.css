@@ -29,10 +29,21 @@ select{
   margin-bottom: 20px;
 }
 
- img{
+.cards-image {
   height: 20em;
   width: 100%;
 }
+
+.destination-image {
+  height: 20em;
+  width: 100%;
+}
+
+.user-image {
+  height: auto;
+  width: 100%;
+}
+
 /* nav */
 .sticky-nav-wrapper {
   height: 60px;
@@ -74,6 +85,7 @@ footer p{
 }
 /* card */
 div.card-panel.card{
+  margin-top: 2em;
   margin-right: 90px;
 }
 .row .col s3{
