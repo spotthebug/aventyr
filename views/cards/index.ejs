@@ -21,18 +21,22 @@
         <% if(!user) { %>
           <a href="/signup">Sign up</a>
           <a href="/login" class="btn teal lighten-3">Log In</a>
+          <a href="/api/destinations">Destinations</a>
+
         <% } else { %>
           <a href="/api/cards/create"><i class="fas fa-pencil-alt"></i></a>
           <a href=""><%= user.username %></a>
           <a href="/logout" class="btn teal lighten-3">Log Out</a>
+          <a href="/api/destinations">Destinations</a>
+
         <% } %>
         </div>
       </nav>
       <div id="target" class="row">
         <% for (let card of cards) { %>
           <a href="/api/cards/<%=card.id%>">
-          <div class="card-panel col s2 card">
-            <img src="<%=card.image%>">
+          <div class="card-panel col s3 card">
+            <img class="cards-image" src="<%=card.image%>">
             <p class="center-align"><%= card.title %>
             <% if(user) { %>
             <form method="POST" action="cards/<%= card._id %>?_method=DELETE">
