@@ -3,7 +3,8 @@ $(document).on('ready', function(){
 // sticky nav on scroll
 $(window).on('scroll', function(){
   var distanceScrolled = 	$(window).scrollTop();
-    if (distanceScrolled>630){
+  console.log(distanceScrolled);
+    if (distanceScrolled>660){
 		$('.sticky-nav-wrapper').addClass('scrolled');
 	} else{
 		$('.sticky-nav-wrapper').removeClass('scrolled');

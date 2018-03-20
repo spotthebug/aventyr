@@ -3,7 +3,7 @@
   height: auto;
 }
 header{
-  background: url("/images/header.jpg");
+  background: url("/images/header.gif");
   background-position: center;
   background-size: cover;
   padding: 170px;
@@ -30,14 +30,6 @@ img{
   height: 200px;
   width: 200px;
 }
-/* nav */
-.sticky-nav-wrapper {
-  height: 60px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
 
 .scrolled {
   position: fixed;
@@ -55,9 +47,6 @@ img{
     transition: width 2s linear 1s;
 }
 /* main */
-main{
-  margin: 10rem 0;
-}
 h3{
   margin-top: 5rem;
 }
@@ -92,13 +81,30 @@ button{
   width:250px;
   margin-top: 2em;
 }
-.profilem{
-  height:250px;
-  width:250px;
-  margin-top: 2em;
+.about-image{
+  width: 50%;
+  height: auto;
 }
-.profileg{
-  height:250px;
-  width:250px;
-  margin-top: 2em;
+section{
+  padding: 5rem;
+}
+h4{
+  padding-top: 5rem;
+}
+.carousel{
+  height: 500px;
+  margin-top: -100px;
+}
+.profile, .row .col.s3{
+  margin: 20px 50px;
+}
+.github{
+  margin: 0 30%;
+}
+.row.light-blue.lighten-3{
+  padding-bottom: 3rem;
+}
+.about{
+  font-size: 20px;
+  font-family: 'Josefin sans';
 }
