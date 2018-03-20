@@ -83,6 +83,22 @@ img{
   margin: 0 auto;
   padding: 5px;
 }
+
 button{
   margin-left: 45%;
+}
+.profileimage{
+  height:250px;
+  width:250px;
+  margin-top: 2em;
+}
+.profilem{
+  height:250px;
+  width:250px;
+  margin-top: 2em;
+}
+.profileg{
+  height:250px;
+  width:250px;
+  margin-top: 2em;
 }

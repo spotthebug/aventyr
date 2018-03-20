@@ -72,7 +72,8 @@ app.get("/", function(req, res) {
     } else {
         res.render("index", { destinations: allDestinations, user: req.user, error: null});
     }
-  });});
+  });
+});
 
 // Signup
 app.get('/signup', function (req, res) {
@@ -94,19 +95,25 @@ app.post("/signup", function (req, res) {
   );
 });
 
+// Login and Logout
+
 app.post('/login',passport.authenticate('local'), function (req, res){
-console.log(req.user);
+
 res.redirect("/");
 });
+
 app.get('/login', function(req, res){
   res.render("login")
 });
+
 app.get('/logout', function (req, res){
   console.log("Before logout", JSON.stringify(req.user));
   req.logout();
   console.log("After logout", JSON.stringify(req.user));
   res.redirect('/')
 });
+
+
 
 //View of all cards
 app.get("/api/cards", function(req, res){
@@ -121,6 +128,7 @@ app.get("/api/cards", function(req, res){
 
 });
 });
+
 app.get("/api/cards/create", function(req, res){
   Destination.find({}, function(err, allDestinations){
     if (err){
@@ -130,9 +138,11 @@ app.get("/api/cards/create", function(req, res){
       console.log(allDestinations);
       res.render("./cards/create", {destinations: allDestinations, user: req.user});
     }
-  })
+  });
 
 });
+
+// create cards
 // create cards
 app.post("/api/cards", function(req, res){
   var newCard = new Card(req.body);
@@ -159,7 +169,6 @@ Destination.findOne({name: req.body.destination}, function(err, destination){
 
   });
 });
-
 //Showpage for individual cards
 app.get("/api/cards/:id", function(req, res){
   Card.findOne({_id: req.params.id}, function(err, foundCard){
