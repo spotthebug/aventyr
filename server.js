@@ -122,6 +122,7 @@ app.get("/api/cards", function(req, res){
       console.log(err);
     } else {
       // res.render("cards/index", {cards: allCards, error: null});
+      console.log(allCards);
       res.render("./cards/index", {cards: allCards, user: req.user});
     }
 
@@ -216,6 +217,17 @@ app.get("/api/users", function(req, res){
       res.json(allUsers);
     }
 });
+});
+app.get("/api/users/:id", function(req, res){
+  console.log('user data:', req.user);
+  var user= req.user;
+  Card.find({user: user.id}, function(err, userCards){
+    if (err) {
+      console.log(err);
+    } else{
+      res.render("./users/index", {user: req.user, cards: userCards});
+    }
+  })
 });
 
 

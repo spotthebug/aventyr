@@ -83,6 +83,10 @@ img{
   margin: 0 auto;
   padding: 5px;
 }
+
+button{
+  margin-left: 45%;
+}
 .profileimage{
   height:250px;
   width:250px;
