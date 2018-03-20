@@ -11,6 +11,9 @@ $(window).on('scroll', function(){
 });
  $('.carousel').carousel({padding: 200});
 
-//AJAX calls
+$('.signup-btn').on('click', function(e){
+  e.preventDefault();
+  $("#sign-up").slideToggle("slow");
+})
 
 });

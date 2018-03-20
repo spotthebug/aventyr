@@ -10,12 +10,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <link rel="stylesheet" href="/styles/style.css">
-  <script src="../scripts/app.js"></script>
+  <!-- <script src="../scripts/app.js"></script> -->
   <script src="../scripts/fontawesome-all.js"></script>
 
 </head>
 <body>
-  <nav class= "valign-wrapper grey lighten-2 sticky-nav-wrapper">
+  <nav class= "valign-wrapper grey lighten-2">
     <a href="/"><img src="/images/aventyr.png" id="logo"></a>
     <div>
         <% if(!user) { %>
@@ -30,9 +30,9 @@
       </nav>
       <div id="target" class="row">
         <% for (let card of cards) { %>
-          <div class="card-panel col s2 offset-s1 card">
+          <div class="card-panel col s2 card">
             <img src="<%=card.image%>">
-            <p><%= card.title %></p>
+            <p class="center-align"><%= card.title %></p>
             <% if(user) { %>
             <form method="POST" action="cards/<%= card._id %>?_method=DELETE">
                 <button type = "submit">

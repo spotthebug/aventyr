@@ -167,9 +167,9 @@ app.get("/api/cards/:id", function(req, res){
       console.log(err);
     } else{
       res.json(foundCard);
-      foundCard.title = req.body.title || foundCard.title;
-      foundCard.description = req.body.description || foundCard.description;
-      foundCard.image = req.body.title || foundCard.image;
+      // foundCard.title = req.body.title || foundCard.title;
+      // foundCard.description = req.body.description || foundCard.description;
+      // foundCard.image = req.body.title || foundCard.image;
     }
   })
 });
@@ -182,7 +182,7 @@ app.get("/api/destinations", function(req, res) {
       res.status(500).json({error: err.message});
     }
     else {
-      res.json(allDestinations);
+      res.render("./destinations/index", {destinations: allDestinations, user: req.user});
       // res.render("destinations/index", {destinations: allDestinations})
     }
   });

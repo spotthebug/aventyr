@@ -46,12 +46,41 @@ img{
   z-index: 100;
 
 }
+/*signup form*/
+
+#sign-up{
+  display: none;
+}
+
+.show-signup{
+    transition: width 2s linear 1s;
+}
 /* main */
 main{
-  margin: 5rem 0;
+  margin: 10rem 0;
+}
+h3{
+  margin-top: 5rem;
 }
 /* footer */
+.info{
+  margin-bottom: 0;
+}
 footer p{
-  margin-bottom:0;
+  margin:0;
   padding: 16px;
+}
+/* card */
+div.card-panel.card{
+  margin: 40px;
+
+}
+.row .col.s2 {
+    margin-left: 60px;
+}
+/*Destinations*/
+img{
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
 }
