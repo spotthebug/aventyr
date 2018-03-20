@@ -12,7 +12,7 @@ var userList = [];
 var destinationsList = [
   {
     name: "San Francisco",
-    image: "https://image.flaticon.com/icons/png/512/774/774181.png"
+    image: "https://image.flaticon.com/icons/png/512/774/774181.png",
   },
   {
     name: "Egypt",
