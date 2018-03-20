@@ -192,21 +192,34 @@ app.get("/api/destinations", function(req, res) {
     }
     else {
       res.render("./destinations/index", {destinations: allDestinations, user: req.user});
-      // res.render("destinations/index", {destinations: allDestinations})
     }
   });
 });
 
 app.get("/api/destinations/:id", function(req, res) {
-  Destination.findById((req.params.id), function(err, foundDestination) {
+  var destination = req.params.id;
+  Destination.findById((destination), function(err, foundDestination) {
     if (err) {
       res.status(500).json({error: err.message});
-    }else {
-      res.json(foundDestination);
-      // res.render("destinations/show", {destinations: foundDestination});
     }
-  });
+    else if (foundDestination) {
+      console.log()
+      Card.find({destination: foundDestination._id}, req.body, {new: true}).populate('user').exec(function(err, allCards) {
+        if (err) {
+          res.status(500).json({error: err.message});
+        }
+        else {
+          console.log(allCards);
+          res.render("./destinations/show", {cards: allCards, destination: foundDestination});
+        }
+      });
+
+    }
+
+
+    });
 });
+
 
 app.get("/api/users", function(req, res){
   User.find({}, function(err, allUsers){

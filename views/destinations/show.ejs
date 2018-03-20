@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Aventyr</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="/styles/style.css">
+  <script src="../scripts/app.js"></script>
+
+</head>
+<body>
+  <div id="target" class="row">
+    <img src="<%= destination.image %>">
+    <% for (let card of cards) { %>
+      <div class="destination card-panel col s2 card">
+        <img src="<%=card.image%>">
+        <p class="center-align"><%= card.title %></p>
+        <p><%= card.description %></p>
+        <p><%= card.rating %></p>
+        <p>Posted by: <%= card.user %></p>
+      </div>
+    <% } %>
+
+  </div>
+
+  </div>
+
+</body>
+</html>
