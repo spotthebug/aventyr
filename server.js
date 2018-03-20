@@ -65,12 +65,12 @@ app.use(function(req, res, next) {
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  Card.find(function (err, allCards) {
-    console.log(allCards);
+  Destination.find(function (err, allDestinations) {
+    console.log(allDestinations);
     if (err) {
       res.status(500).json({ error: err.message, });
     } else {
-        res.render("index", { posts: allCards, user: req.user, error: null});
+        res.render("index", { destinations: allDestinations, user: req.user, error: null});
     }
   });});
 
@@ -154,7 +154,7 @@ Destination.findOne({name: req.body.destination}, function(err, destination){
       }
     res.redirect("/api/cards");
   })
-}
+};
 
   });
 });

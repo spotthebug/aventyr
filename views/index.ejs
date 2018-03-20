@@ -18,8 +18,8 @@
   <header class="center-align">
     <h1 class="center-align white-text">AveNtyr</h1>
     <img src="/images/aventyr.png" id = "main-page">
-  </header>
-  <nav class= "valign-wrapper grey lighten-2 sticky-nav-wrapper">
+    </header>
+  <nav class= "valign-wrapper grey sticky-nav-wrapper">
     <a href="/"><img src="/images/aventyr.png" id="logo"></a>
     <div>
       <a href="/api/cards">Gallery</a>
@@ -32,5 +32,33 @@
           <% } %>
         </div>
       </nav>
+      <main>
+        <h3 class="center-align">Destinations</h3>
+        <div class="container row carousel">
+        <% for (let destination of destinations) { %>
+          <div class="col s3 carousel-item">
+            <img src="<%=destination.image%>">
+            <h4 class="center-align"><%= destination.name %></h4>
+          </div>
+          <% } %>
+        </div>
+      </main>
+      <section class="row">
+        <div class="col s1 offset-s4">
+          <h6>Contact Us</h6>
+          <a href="">Facebook <i class="fab fa-facebook-square fa-2x"></i></a>
+          <a href="">Instagram<i class="fab fa-instagram fa-2x"></i></a>
+          <a href="">LinkedIn <i class="fab fa-linkedin fa-2x"></i></a>
+          <a href="">E-mail Us<i class="far fa-envelope fa-2x"></i></a>
+        </div>
+        <div class="col s1 offset-s2">
+          <h6>Careers</h6>
+          <p>Terms </p>
+          <p>Privacy Policy</p>
+        </div>
+      </section>
+      <footer>
+        <p class="center-align grey">© Aventyr</p>
+      </footer>
     </body>
     </html>

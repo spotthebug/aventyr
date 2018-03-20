@@ -7,7 +7,8 @@ header{
   background: url("/images/header.jpg");
   background-position: center;
   background-size: cover;
-  padding: 150px;
+  padding: 170px;
+  margin-bottom: 0;
 }
 h1{
   margin-right: 20px;
@@ -27,6 +28,30 @@ select{
   margin-bottom: 20px;
 }
 img{
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
+}
+/* nav */
+.sticky-nav-wrapper {
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.scrolled {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+
+}
+/* main */
+main{
+  margin: 5rem 0;
+}
+/* footer */
+footer p{
+  margin-bottom:0;
+  padding: 16px;
 }
