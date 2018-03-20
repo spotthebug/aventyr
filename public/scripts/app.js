@@ -10,7 +10,7 @@ $(window).on('scroll', function(){
 		$('.sticky-nav-wrapper').removeClass('scrolled');
 	}
 });
- $('.carousel').carousel({padding: 200});
+ $('.carousel').carousel({padding: 300});
 
 $('.signup-btn').on('click', function(e){
   e.preventDefault();
