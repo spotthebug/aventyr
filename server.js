@@ -115,7 +115,7 @@ app.get("/api/cards", function(req, res){
       console.log(err);
     } else {
       // res.render("cards/index", {cards: allCards, error: null});
-      res.render("./cards/index", {cards: allCards});
+      res.render("./cards/index", {cards: allCards, user: req.user});
     }
 
 });
@@ -127,7 +127,7 @@ app.get("/api/cards/create", function(req, res){
     } else {
       // res.render("cards/index", {cards: allCards, error: null});
       console.log(allDestinations);
-      res.render("./cards/create", {destinations: allDestinations});
+      res.render("./cards/create", {destinations: allDestinations, user: req.user});
     }
   })
 
@@ -226,6 +226,7 @@ app.delete("/api/cards/:id", function (req, res) {
 
   // find card in db by id and remove
   Card.findOneAndRemove({ _id: cardId, }, function () {
+    console.log("Deleted:");
     res.redirect("/");
   });
 });

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <link rel="stylesheet" href="/styles/style.css">
+  <script src="./scripts/fontawesome-all.js"></script>
   <script src="./scripts/app.js"></script>
 
 </head>
@@ -19,14 +20,14 @@
     <img src="/images/aventyr.png" id = "main-page">
   </header>
   <nav class= "valign-wrapper grey lighten-2 sticky-nav-wrapper">
-    <a href=""><img src="/images/aventyr.png" id="logo"></a>
+    <a href="/"><img src="/images/aventyr.png" id="logo"></a>
     <div>
       <a href="/api/cards">Gallery</a>
       <% if(!user) { %>
         <a href="/signup">Sign up</a>
         <a href="/login" class="btn teal lighten-3">Log In</a>
         <% } else { %>
-          <div>Welcome, <%= user.username %>!</div>
+          <a href=""><%= user.username %></a>
           <a href="/logout" class="btn teal lighten-3">Log Out</a>
           <% } %>
         </div>

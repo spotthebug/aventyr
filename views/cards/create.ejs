@@ -15,12 +15,14 @@
 </head>
 <body>
  <nav class= "valign-wrapper grey lighten-2 sticky-nav-wrapper">
-   <a href=""><img src="/images/aventyr.png" id="logo"></a>
+   <a href="/"><img src="/images/aventyr.png" id="logo"></a>
    <div>
-     <a href="/api/cards">Gallery</a>
-     <a href="">Sign up</a>
-     <a href="" class="btn teal lighten-3">Log In</a>
-     <a href="" class="btn teal lighten-3">Log Out</a>
+     <% if(!user) { %>
+       <a href="/signup">Sign up</a>
+       <a href="/login" class="btn teal lighten-3">Log In</a>
+       <% } else { %>
+         <a href="/logout" class="btn teal lighten-3">Log Out</a>
+         <% } %>
    </div>
  </nav>
  <main>
