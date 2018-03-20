@@ -15,14 +15,14 @@
 </head>
 <body>
   <div id="target" class="row">
-    <img src="<%= destination.image %>">
+    <img class="dest-show-image" src="<%= destination.image %>">
     <% for (let card of cards) { %>
-      <div class="destination card-panel col s2 card">
-        <img src="<%=card.image%>">
+      <div class="destination card-panel col s3 card">
+        <img class="cards-image" src="<%=card.image%>">
         <p class="center-align"><%= card.title %></p>
         <p><%= card.description %></p>
-        <p><%= card.rating %></p>
-        <p>Posted by: <%= card.user %></p>
+        <p>Rating: <%= card.rating %></p>
+        <p>Posted by: <%= card.user.username %></p>
       </div>
     <% } %>
 
