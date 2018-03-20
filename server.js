@@ -121,7 +121,6 @@ app.get("/api/cards", function(req, res){
     if (err){
       console.log(err);
     } else {
-      // res.render("cards/index", {cards: allCards, error: null});
       console.log(allCards);
       res.render("./cards/index", {cards: allCards, user: req.user});
     }
@@ -176,7 +175,7 @@ app.get("/api/cards/:id", function(req, res){
     if (err){
       console.log(err);
     } else{
-      res.json(foundCard);
+      res.render("./cards/show",{card: foundCard});
       // foundCard.title = req.body.title || foundCard.title;
       // foundCard.description = req.body.description || foundCard.description;
       // foundCard.image = req.body.title || foundCard.image;

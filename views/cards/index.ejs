@@ -30,6 +30,7 @@
       </nav>
       <div id="target" class="row">
         <% for (let card of cards) { %>
+          <a href="/api/cards/<%=card.id%>">
           <div class="card-panel col s2 card">
             <img src="<%=card.image%>">
             <p class="center-align"><%= card.title %>
@@ -40,6 +41,7 @@
                 </button>
             </form>
             </p>
+          </a>
             <% } %>
           </div>
           <% } %>
