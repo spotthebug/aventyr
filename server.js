@@ -210,7 +210,7 @@ app.get("/api/destinations/:id", function(req, res) {
         }
         else {
           console.log(allCards);
-          res.render("./destinations/show", {cards: allCards, destination: foundDestination});
+          res.render("./destinations/show", {cards: allCards, destination: foundDestination, user: req.user});
         }
       });
 

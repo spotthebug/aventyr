@@ -14,6 +14,24 @@
 
 </head>
 <body>
+  <nav class= "valign-wrapper grey lighten-2">
+    <a href="/"><img src="/images/aventyr.png" id="logo"></a>
+    <div>
+        <% if(!user) { %>
+          <a href="/signup">Sign up</a>
+          <a href="/login" class="btn teal lighten-3">Log In</a>
+          <a href="/api/destinations">Destinations</a>
+
+        <% } else { %>
+          <a href="/api/cards/create"><i class="fas fa-pencil-alt"></i></a>
+          <a href=""><%= user.username %></a>
+          <a href="/logout" class="btn teal lighten-3">Log Out</a>
+          <a href="/api/destinations">Destinations</a>
+
+        <% } %>
+        </div>
+      </nav>
+
   <div id="target" class="row">
     <img class="dest-show-image" src="<%= destination.image %>">
     <% for (let card of cards) { %>
