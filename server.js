@@ -29,7 +29,7 @@ app.use(express.static('public'));
 var db = require('./models'),
   Card = db.Card,
   Destination = db.Destination,
-  User = db.User;
+  User = db.User,
   Rating = db.Rating;
 
 // set view engine to ejs
@@ -66,12 +66,12 @@ app.use(function(req, res, next) {
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  Card.find(function (err, allCards) {
-    console.log(allCards);
+  Destination.find(function (err, allDestinations) {
+    console.log(allDestinations);
     if (err) {
       res.status(500).json({ error: err.message, });
     } else {
-        res.render("index", { posts: allCards, user: req.user, error: null});
+        res.render("index", { destinations: allDestinations, user: req.user, error: null});
     }
   });});
 
@@ -122,35 +122,62 @@ app.get("/api/cards", function(req, res){
       console.log(err);
     } else {
       // res.render("cards/index", {cards: allCards, error: null});
-      res.render("./cards/index", {cards: allCards});
+      res.render("./cards/index", {cards: allCards, user: req.user});
     }
 
 });
 });
 app.get("/api/cards/create", function(req, res){
+<<<<<<< HEAD
   res.render("./cards/create");
 })
+=======
+  Destination.find({}, function(err, allDestinations){
+    if (err){
+      console.log(err);
+    } else {
+      // res.render("cards/index", {cards: allCards, error: null});
+      console.log(allDestinations);
+      res.render("./cards/create", {destinations: allDestinations, user: req.user});
+    }
+  })
+
+});
+>>>>>>> b30188e7a0a3eea1717cd502e5616a6937e1d58b
 // create cards
 app.post("/api/cards", function(req, res){
   var newCard = new Card(req.body);
 //saving the new card that was created
+<<<<<<< HEAD
   newCard.save(function(err, savedCard){
     if (err){
       console.log(err);
     } else {
       res.json(savedCard);
     }
+=======
+console.log(req.body);
+Destination.findOne({name: req.body.destination}, function(err, destination){
+  if (err){
+    console.log(err);
+  } else {
+    // res.render("cards/index", {cards: allCards, error: null});
+    newCard.destination = destination;
+    newCard.user = req.user;
+    // newCard.rating = Rating.findOne({rating: req.body.rating);
+    console.log(req.user);
+    newCard.save(function(err, savedCard){
+      if (err){
+        console.log(err);
+      } else {
+        console.log(savedCard);
+      }
+    res.redirect("/api/cards");
+  })
+};
+
+>>>>>>> b30188e7a0a3eea1717cd502e5616a6937e1d58b
   });
-//populate user reference in the card model
-  // Card.find().populate('User').exec(function(err,card){
-  //   console.log(card);
-  //   console.log(card.User);
-  // });
-  // //populate destination reference in the card model
-  // Card.find().populate('Destination').exec(function(err,card){
-  //   console.log(card);
-  //   console.log(card.Destination);
-  // });
 });
 
 //Showpage for individual cards
@@ -161,9 +188,9 @@ app.get("/api/cards/:id", function(req, res){
       console.log(err);
     } else{
       res.json(foundCard);
-      foundCard.title = req.body.title || foundCard.title;
-      foundCard.description = req.body.description || foundCard.description;
-      foundCard.image = req.body.title || foundCard.image;
+      // foundCard.title = req.body.title || foundCard.title;
+      // foundCard.description = req.body.description || foundCard.description;
+      // foundCard.image = req.body.title || foundCard.image;
     }
   })
 });
@@ -176,7 +203,7 @@ app.get("/api/destinations", function(req, res) {
       res.status(500).json({error: err.message});
     }
     else {
-      res.json(allDestinations);
+      res.render("./destinations/index", {destinations: allDestinations, user: req.user});
       // res.render("destinations/index", {destinations: allDestinations})
     }
   });
@@ -211,7 +238,8 @@ app.delete("/api/cards/:id", function (req, res) {
 
   // find card in db by id and remove
   Card.findOneAndRemove({ _id: cardId, }, function () {
-    res.redirect("/");
+    console.log("Deleted:");
+    res.redirect("/api/cards");
   });
 });
 
