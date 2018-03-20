@@ -2,6 +2,12 @@ var db = require('./models');
 var faker = require('faker');
 
 var userList = [];
+// var ratingList =[
+//   {rating: 1},
+//   {rating: 2},
+//   {rating: 4},
+//   {rating: 5}
+// ];
 
 var destinationsList = [
   {
@@ -66,6 +72,18 @@ db.Card.remove({}, function(err, cards) {
   })
 });
 
+// db.Rating.remove({}, function(err, ratings) {
+//   console.log('removed all ratings');
+//   db.Rating.create(ratingList, function(err, ratings){
+//     if (err) {
+//       console.log(err);
+//       return;
+//     }
+//     console.log('recreated all ratings');
+//     console.log("created", ratings.length, "ratings");
+//   })
+// });
+
 // remove all records that match {} -- which means remove ALL records
 db.Destination.remove({}, function(err, destinations) {
   console.log('removed all destinations');
@@ -96,4 +114,3 @@ db.Destination.remove({}, function(err, destinations) {
 // }
 
 // });
-

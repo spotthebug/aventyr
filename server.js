@@ -28,7 +28,7 @@ app.use(express.static('public'));
 var db = require('./models'),
   Card = db.Card,
   Destination = db.Destination,
-  User = db.User;
+  User = db.User,
   Rating = db.Rating;
 
 // set view engine to ejs
@@ -136,7 +136,7 @@ app.get("/api/cards/create", function(req, res){
 app.post("/api/cards", function(req, res){
   var newCard = new Card(req.body);
 //saving the new card that was created
-console.log(req.body.destination);
+console.log(req.body);
 Destination.findOne({name: req.body.destination}, function(err, destination){
   if (err){
     console.log(err);
@@ -144,6 +144,7 @@ Destination.findOne({name: req.body.destination}, function(err, destination){
     // res.render("cards/index", {cards: allCards, error: null});
     newCard.destination = destination;
     newCard.user = req.user;
+    // newCard.rating = Rating.findOne({rating: req.body.rating);
     console.log(req.user);
     newCard.save(function(err, savedCard){
       if (err){
@@ -156,16 +157,6 @@ Destination.findOne({name: req.body.destination}, function(err, destination){
 }
 
   });
-//populate user reference in the card model
-  // Card.find().populate('User').exec(function(err,card){
-  //   console.log(card);
-  //   console.log(card.User);
-  // });
-  // //populate destination reference in the card model
-  // Card.find().populate('Destination').exec(function(err,card){
-  //   console.log(card);
-  //   console.log(card.Destination);
-  // });
 });
 
 //Showpage for individual cards
@@ -227,7 +218,7 @@ app.delete("/api/cards/:id", function (req, res) {
   // find card in db by id and remove
   Card.findOneAndRemove({ _id: cardId, }, function () {
     console.log("Deleted:");
-    res.redirect("/");
+    res.redirect("/api/cards");
   });
 });
 
