@@ -17,7 +17,6 @@ var express = require("express"),
   session = require("express-session"),
   passport = require("passport"),
   LocalStrategy = require("passport-local").Strategy;
-  $ = require('jquery');
 
 // configure bodyParser (for receiving form data)
 app.use(bodyParser.urlencoded({ extended: true, }));
@@ -73,7 +72,8 @@ app.get("/", function(req, res) {
     } else {
         res.render("index", { destinations: allDestinations, user: req.user, error: null});
     }
-  });});
+  });
+});
 
 // Signup
 app.get('/signup', function (req, res) {
@@ -127,11 +127,8 @@ app.get("/api/cards", function(req, res){
 
 });
 });
+
 app.get("/api/cards/create", function(req, res){
-<<<<<<< HEAD
-  res.render("./cards/create");
-})
-=======
   Destination.find({}, function(err, allDestinations){
     if (err){
       console.log(err);
@@ -140,22 +137,15 @@ app.get("/api/cards/create", function(req, res){
       console.log(allDestinations);
       res.render("./cards/create", {destinations: allDestinations, user: req.user});
     }
-  })
+  });
 
 });
->>>>>>> b30188e7a0a3eea1717cd502e5616a6937e1d58b
+
+// create cards
 // create cards
 app.post("/api/cards", function(req, res){
   var newCard = new Card(req.body);
 //saving the new card that was created
-<<<<<<< HEAD
-  newCard.save(function(err, savedCard){
-    if (err){
-      console.log(err);
-    } else {
-      res.json(savedCard);
-    }
-=======
 console.log(req.body);
 Destination.findOne({name: req.body.destination}, function(err, destination){
   if (err){
@@ -176,10 +166,8 @@ Destination.findOne({name: req.body.destination}, function(err, destination){
   })
 };
 
->>>>>>> b30188e7a0a3eea1717cd502e5616a6937e1d58b
   });
 });
-
 //Showpage for individual cards
 app.get("/api/cards/:id", function(req, res){
   Card.findOne({_id: req.params.id}, function(err, foundCard){
