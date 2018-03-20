@@ -7,7 +7,8 @@ header{
   background: url("/images/header.jpg");
   background-position: center;
   background-size: cover;
-  padding: 150px;
+  padding: 170px;
+  margin-bottom: 0;
 }
 h1{
   margin-right: 20px;
@@ -27,6 +28,59 @@ select{
   margin-bottom: 20px;
 }
 img{
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
+}
+/* nav */
+.sticky-nav-wrapper {
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.scrolled {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+
+}
+/*signup form*/
+
+#sign-up{
+  display: none;
+}
+
+.show-signup{
+    transition: width 2s linear 1s;
+}
+/* main */
+main{
+  margin: 10rem 0;
+}
+h3{
+  margin-top: 5rem;
+}
+/* footer */
+.info{
+  margin-bottom: 0;
+}
+footer p{
+  margin:0;
+  padding: 16px;
+}
+/* card */
+div.card-panel.card{
+  margin: 40px;
+
+}
+.row .col.s2 {
+    margin-left: 60px;
+}
+/*Destinations*/
+img{
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
 }

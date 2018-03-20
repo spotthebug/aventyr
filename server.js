@@ -65,12 +65,12 @@ app.use(function(req, res, next) {
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  Card.find(function (err, allCards) {
-    console.log(allCards);
+  Destination.find(function (err, allDestinations) {
+    console.log(allDestinations);
     if (err) {
       res.status(500).json({ error: err.message, });
     } else {
-        res.render("index", { posts: allCards, user: req.user, error: null});
+        res.render("index", { destinations: allDestinations, user: req.user, error: null});
     }
   });});
 
@@ -154,7 +154,7 @@ Destination.findOne({name: req.body.destination}, function(err, destination){
       }
     res.redirect("/api/cards");
   })
-}
+};
 
   });
 });
@@ -167,9 +167,9 @@ app.get("/api/cards/:id", function(req, res){
       console.log(err);
     } else{
       res.json(foundCard);
-      foundCard.title = req.body.title || foundCard.title;
-      foundCard.description = req.body.description || foundCard.description;
-      foundCard.image = req.body.title || foundCard.image;
+      // foundCard.title = req.body.title || foundCard.title;
+      // foundCard.description = req.body.description || foundCard.description;
+      // foundCard.image = req.body.title || foundCard.image;
     }
   })
 });
@@ -182,7 +182,7 @@ app.get("/api/destinations", function(req, res) {
       res.status(500).json({error: err.message});
     }
     else {
-      res.json(allDestinations);
+      res.render("./destinations/index", {destinations: allDestinations, user: req.user});
       // res.render("destinations/index", {destinations: allDestinations})
     }
   });

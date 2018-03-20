@@ -12,23 +12,27 @@ var userList = [];
 var destinationsList = [
   {
     name: "San Francisco",
-    image: "./images/america1"
+    image: "https://image.flaticon.com/icons/png/512/774/774181.png"
   },
   {
     name: "Egypt",
-    image: "./images/egypt1.png"
+    image: "https://image.flaticon.com/icons/svg/185/185359.svg"
   },
   {
     name: "Paris",
-    image: "./images/france2.png"
+    image: "https://image.flaticon.com/icons/svg/169/169342.svg"
   },
   {
     name: "Agra",
-    image: "./images/tajmahal1.png"
+    image: "https://image.flaticon.com/icons/svg/305/305967.svg"
   },
   {
     name: "Sydney",
-    image: "./images/castle1.png"
+    image: "https://image.flaticon.com/icons/svg/774/774195.svg"
+  },
+  {
+    name: "Other Locations",
+    image: "https://image.flaticon.com/icons/svg/174/174249.svg"
   }
 ];
 
