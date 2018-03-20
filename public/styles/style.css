@@ -16,6 +16,7 @@ h1{
   height: 200px;
   width: auto;
 }
+
 nav{
   display: flex;
   justify-content: space-between;
@@ -23,17 +24,29 @@ nav{
 nav a{
   margin: 0 15px;
 }
+
 select{
   margin-bottom: 20px;
 }
-img{
-  height: 200px;
-  width: 200px;
+
+.cards-image {
+  height: 20em;
+  width: 100%;
 }
+
+.destination-image {
+  height: 20em;
+  width: 100%;
+}
+
+.user-image {
+  height: auto;
+  width: 100%;
+}
+
 /* nav */
 .sticky-nav-wrapper {
   height: 60px;
-  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
@@ -58,6 +71,7 @@ img{
 main{
   margin: 10rem 0;
 }
+
 h3{
   margin-top: 5rem;
 }
@@ -71,12 +85,17 @@ footer p{
 }
 /* card */
 div.card-panel.card{
-  margin: 40px;
+  margin-top: 2em;
+  margin-right: 90px;
+}
+.row .col s3{
+  margin-left: 10em;
+}
 
+#target {
+  margin-left: 7.5em;
 }
-.row .col.s2 {
-    margin-left: 60px;
-}
+
 /*Destinations*/
 img{
   display: block;
@@ -102,3 +121,9 @@ button{
   width:250px;
   margin-top: 2em;
 }
+
+.dest-show-image {
+  height: 15em;
+  width: 30%;
+}
+

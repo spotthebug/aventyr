@@ -15,10 +15,6 @@
 
 </head>
 <body>
-  <header class="center-align">
-    <h1 class="center-align white-text">AveNtyr</h1>
-    <img src="/images/aventyr.png" id = "main-page">
-    </header>
   <nav class= "valign-wrapper grey sticky-nav-wrapper">
     <a href="/"><img src="/images/aventyr.png" id="logo"></a>
     <div>
@@ -26,12 +22,20 @@
       <% if(!user) { %>
         <a href="" class="signup-btn">Sign up</a>
         <a href="/login" class="btn teal lighten-3">Log In</a>
-        <% } else { %>
-          <a href="/api/users/<%=user.id%>"><%= user.username %></a>
-          <a href="/logout" class="btn teal lighten-3">Log Out</a>
-          <% } %>
-        </div>
-      </nav>
+        <a href="/api/destinations">Destinations</a>
+
+      <% } else { %>
+        <a href="/api/users/<%=user.id%>"><%= user.username %></a>
+        <a href="/logout" class="btn teal lighten-3">Log Out</a>
+      <% } %>
+    </div>
+  </nav>
+
+  <header class="center-align">
+    <h1 class="center-align white-text">AveNtyr</h1>
+    <img src="/images/aventyr.png" id = "main-page">
+  </header>
+
       <main>
         <div class="row" id="sign-up">
         <form method="POST" action="/signup" class="col s4 offset-s4">
