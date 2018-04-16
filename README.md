@@ -6,7 +6,7 @@ Aventyr is an app that helps the travelers or adventurers find inspiration from 
 ### Demo
 https://fast-brook-23117.herokuapp.com
 
-## MVP:
+### MVP:
 - A Home and About Page that gives users information about top travel destinations and information about the website creators
 - A Destinations index Page that display all the travel cards
 - User can click on the each card  to view information about it
@@ -23,7 +23,7 @@ Users typically would be 18 years or older
 Should have Internet access
 
 
-## User Stories
+### User Stories
 User visits the website and sees the top destinations.
 - If the user is interested in traveling they click on the destinations on the nav bar to go to the index of all destinations.
 - On clicking on a destination card the show page is opened that shows the information about the destination in detail.
@@ -31,7 +31,7 @@ User visits the website and sees the top destinations.
 - If they have an account they can create a destination card and also delete the cards they’ve created.
 - The user logs out and is redirected to the homepage.
 
-## Features:
+### Features:
 - Informational Page (Home and About)
 - Login
 - Signup
