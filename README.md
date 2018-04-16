@@ -17,12 +17,6 @@ https://fast-brook-23117.herokuapp.com
 - Edit functionality to edit cards, when user is logged in
 Rating dashboard
 
-### Our users are adventurers who are looking for new travel ideas and suggestions.
-Prerequisites:
-Users typically would be 18 years or older
-Should have Internet access
-
-
 ### User Stories
 User visits the website and sees the top destinations.
 - If the user is interested in traveling they click on the destinations on the nav bar to go to the index of all destinations.
